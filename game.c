@@ -56,7 +56,7 @@ void JLeyva(void);
 void fish(void);
 void printStudent30(void);
 void gameroom30(void);
-
+void JoseCInitials(void);
 void printInitialsAjewett(void);
 void jgFun(void);
 void printInitialsSMarkos(void);
@@ -1207,7 +1207,6 @@ void JLeyva(void)
 {
 	printf("JL");
 }
-
 void fish(void) 
 {
 	printf("JF");
@@ -1573,7 +1572,10 @@ void hOsuna(void)
 }
 
 
-
+void JoseCInitials(void)
+{
+	puts("JC");
+}
 
 void stanPush(void)
 {
