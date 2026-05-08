@@ -13,36 +13,16 @@
 #include <stdbool.h>
 #include <unistd.h>
 
-//place function prototypes here
-
-
 void jbInit(void);
-
 void ip21(void);
-
-
 void folksamEV(void);
-
-void ip21(void);
-
 void rtFun(void);
-
 void JLeyva(void);
-
 void fish(void);
-
 void printStudent30(void);
-
 void printInitialsAjewett(void);
-
 void jgFun(void);
-
-
-
-
-
-
-
+void playRoom1(void);
 
 int main(int argc, char *argv[])
 {
@@ -64,383 +44,39 @@ int main(int argc, char *argv[])
 		{
 			case 1:
 			{
-				puts("room1");
+				playRoom1();
 				break;
 			}
-			case 2:
-			{
-				puts("room2");
-				break;
-			}
-			case 3:
-			{
-				puts("room3");
-				break;
-			}
-			case 4:
-			{
-				puts("room4");
-				break;
-			}
-			case 5:
-			{
-				puts("room5");
-				break;
-			}
-			case 6:
-			{
-				puts("room6");
-				break;
-			}
-			case 7:
-			{
-				puts("room7");
-				break;
-			}
-			case 8:
-			{
-				folksamEV();
-				puts("room8");
-				break;
-			}
-			case 9:
-			{
-				puts("room9");
-				printInitialsAjewett();
-				break;
-			}
-			case 10:
-			{
-				fish();
-				puts("room10");
-				break;
-			}
-			case 11:
-			{
-				puts("room11");
-				break;
-			}
-			case 12:
-			{
-				puts("room12");
-				break;
-			}
-			case 13:
-			{
-				puts("room13");
-				break;
-			}
-			case 14:
-			{
-				puts("room14");
-				break;
-			}
-			case 15:
-			{
-				puts("room15");
-				break;
-			}
-			case 16:
-			{
-				puts("room16");
-				break;
-			}
-			case 17:
-			{
-				jbInit();
-				puts("room17");
-				break;
-			}
-			case 18:
-			{
-				puts("room18");
-				break;
-			}
-			case 19:
-			{
-				puts("room19");
-				break;
-			}
-			case 20:
-			{
-				puts("room20");
-				break;
-			}
-			case 21:
-			{
-				ip21();
-				puts("room21");
-				break;
-			}
-			case 22:
-			{
-				puts("room22");
-				break;
-			}
-			case 23:
-			{
-				puts("room23");
-				break;
-			}
-			case 24:
-			{
-				puts("room24");
-				break;
-			}
-			case 25:
-			{
-				puts("room25");
-				break;
-			}
-			case 26:
-			{
-				puts("room26");
-				break;
-			}
-			case 27:
-			{
-				puts("room27");
-				break;
-			}
-			case 28:
-			{
-				puts("room28");
-				break;
-			}
-			case 29:
-			{
-				puts("room29");
-				break;
-			}
-			case 30:
-			{
-				puts("room30");
-				printStudent30();
-				break;
-			}
-			case 31:
-			{
-				puts("room31");
-				break;
-			}
-			case 32:
-			{
-				puts("room32");
-				break;
-			}
-			case 33:
-			{
-				puts("room33");
-				break;
-			}
-			case 34:
-			{
-				puts("room35");
-				break;
-			}
-			case 36:
-			{
-				puts("room36");
-				break;
-			}
-			case 37:
-			{
-				puts("room37");
-				break;
-			}
-			case 38:
-			{
-				puts("room38");
-				break;
-			}
-			case 39:
-			{
-				puts("room39");
-				break;
-			}
-			case 40:
-			{
-				puts("room40");
-				break;
-			}
-			case 41:
-			{
-				puts("room41");
-				break;
-			}
-			case 42:
-			{
-				jgFun();
-				puts("room42");
-				break;
-			}
-			case 43:
-			{
-				puts("room43");
-				break;
-			}
-			case 44:
-			{
-				puts("room44");
-				break;
-			}
-			case 45:
-			{
-				puts("room45");
-				break;
-			}
-			case 46:
-			{
-				puts("room46");
-				break;
-			}
-			case 47:
-			{
-				puts("room47");
-				break;
-			}
-			case 48:
-			{
-				puts("room48");
-				break;
-			}
-			case 49:
-			{
-				puts("room49");
-				break;
-			}
-			case 50:
-			{
-				puts("room50");
-				break;
-			}
-			case 51:
-			{
-				puts("room51");
-				break;
-			}
-			case 52:
-			{
-				puts("room52");
-				break;
-			}
-			case 53:
-			{
-				puts("room53");
-				break;
-			}
-			case 54:
-			{
-				puts("room54");
-				break;
-			}
-			case 55:
-			{
-				puts("room55");
-				break;
-			}
-			case 56:
-                        {
-                                JLeyva();
-				puts("room56");
-                                break;
-                        }
-			case 57:
-                        {
-				rtFun();
-                                puts("room57");
-                                break;
-                        }
-			case 58:
-                        {
-                                puts("room58");
-                                break;
-                        }
-			case 59:
-                        {
-                                puts("room59");
-                                break;
-                        }
-			case 60:
-                        {
-                                puts("room60");
-                                break;
-                        }
-			case 61:
-                        {
-                                puts("room61");
-                                break;
-                        }
-			case 62:
-                        {
-                                puts("room62");
-                                break;
-                        }
-			case 63:
-                        {
-                                puts("room63");
-                                break;
-                        }
-			case 64:
-                        {
-                                puts("room64");
-                                break;
-                        }
-			case 65:
-                        {
-                                puts("room65");
-                                break;
-                        }
-			case 66:
-                        {
-                                puts("room66");
-                                break;
-                        }
-			case 67:
-                        {
-                                puts("room67");
-                                break;
-                        }
-			case 68:
-                        {
-                                puts("room68");
-                                break;
-                        }
-			case 69:
-                        {
-                                puts("room69");
-                                break;
-                        }
 			case 70:
-                        {
-                                puts("room70");
-                                break;
-                        }
+			{
+				puts("room70");
+				break;
+			}
 			case 71:
-                        {
-                                puts("room71");
-                                break;
-                        }
+			{
+				puts("room71");
+				break;
+			}
 			case 72:
-                        {
-                                puts("room72");
-                                break;
-                        }
+			{
+				puts("room72");
+				break;
+			}
 			case 73:
-                        {
-                                puts("room73");
-                                break;
-                        }
+			{
+				puts("room73");
+				break;
+			}
 			case 74:
-                        {
-                                puts("room74");
-                                break;
-                        }
+			{
+				puts("room74");
+				break;
+			}
 			case 75:
-                        {
-                                puts("room75");
-                                break;
-                        }
+			{
+				puts("room75");
+				break;
+			}
 			case 99:
 			{
 				puts("You have escaped");
@@ -456,13 +92,75 @@ int main(int argc, char *argv[])
 	return EXIT_SUCCESS;
 }
 
-//place functions here
+void playRoom1(void) 
+{
+	int i, decision, rNum;
+	char inventory[3][20] = {"Sword", "Shield", "Potion"};
+	int hasItem = 0;
+
+	rNum = rand() % 10 + 1;
+
+	printf("You enter a dusty room. You see a glint in the corner.\n");
+	printf("1. Inspect the glint\n2. Ignore it and walk forward\nChoice: ");
+	scanf("%d", &decision);
+
+	if (decision == 1) {
+		printf("You found a %s! But it crumbles to dust.\n", inventory[0]);
+	} else {
+		printf("You step carefully.\n");
+	}
+
+	printf("A goblin drops from the ceiling! It rolled a %d for initiative.\n", rNum);
+	printf("1. Attack\n2. Defend\nChoice: ");
+	scanf("%d", &decision);
+
+	if (decision == 1) {
+		printf("You attack the goblin!\n");
+	} else {
+		printf("You block the goblin's strike!\n");
+	}
+
+	printf("The goblin drops a chest.\n");
+	printf("1. Open it\n2. Leave it\nChoice: ");
+	scanf("%d", &decision);
+
+	if (decision == 1) {
+		for (i = 0; i < 3; i++) {
+			printf("Checking compartment %d...\n", i + 1);
+		}
+		printf("You found a %s!\n", inventory[2]);
+		hasItem = 1;
+	} else {
+		printf("You walk past the chest.\n");
+	}
+
+	printf("A large door blocks your path with a riddle.\n");
+	printf("1. Try to solve it\n2. Try to smash the door\nChoice: ");
+	scanf("%d", &decision);
+
+	if (decision == 1) {
+		printf("You speak the password and the door opens.\n");
+	} else {
+		printf("You bounce off the heavy iron door and eventually figure out the password.\n");
+	}
+
+	printf("You reach the end of the room.\n");
+	printf("1. Return to the main hall\n2. Search the room one last time\nChoice: ");
+	scanf("%d", &decision);
+
+	if (decision == 2 && hasItem == 0) {
+		printf("You find nothing else.\n");
+	}
+	
+	printf("You leave the room.\n");
+}
+
 void folksamEV(void) 
 {
 	printf("EV\n");
 }
 
-void jbInit()
+void jbInit(void)
 {
 	puts("jbRoom17");
 }
@@ -492,12 +190,8 @@ void printStudent30(void)
 	printf("Student initials CP\n");
 	return;
 }
+
 void printInitialsAjewett(void)
 {
 	printf("AJ\n");
-}
-
-void jgFun(void)
-{
-	printf("JGB");	
 }
