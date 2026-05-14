@@ -21,7 +21,7 @@
 //Meretrout(J.Q)
 //Ivan Peralta
 //Dominic Carreto
-
+//Jeremiah R Pallera-Bautista
 
 
 
@@ -40,6 +40,7 @@
 void khprinter(void);
 void coolGame(void);
 int iAmLazy(int);
+void jpbFun(void);
 
 //dcortez function prototypes 
 void ANFUN(void);
@@ -816,6 +817,7 @@ int main(int argc, char *argv[])
 			}
 			case 53:
 			{
+				jpbFun();
 				puts("room53");
 				break;
 			}
@@ -7321,4 +7323,8 @@ int iAmLazy(int choices)
   printf("\n");
 
   return option;
+}
+void jpbFun(void)
+{
+	puts("JPBroom53");
 }
