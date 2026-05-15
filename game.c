@@ -62,7 +62,17 @@ void theSigmaMethod(void);
 void jbInit(void);
 void ip21(void);
 void folksamEV(void);
-void sonionRH(void);
+//Start of Case 35 Prototype functions
+void walkingPath(void);
+int dicePitTournament(void);
+int highLowTavern(void);
+int battleEncounter(void);
+int riddleGateOne(void);
+int riddleGateTwo(void);
+void printDice(int value);
+void printCard(int value);
+void exitFunction(void);
+//End of Case 35  Prototype functions
 void ip21(void);
 void rtFun(void);
 void JLeyva(void);
@@ -711,8 +721,10 @@ int main(int argc, char *argv[])
 			}
 			case 35:
 			{
-				sonionRH();
-				puts("room35");
+                printf("\nAs you step foot through door 35 you are met with another world\n");
+                printf("\na single winding path stretches into the unknown ~ouuu spooky~.\n");
+                printf("\nyou'll be met with lots of decisions, choose wisely and survive.\n\n");
+                walkingPath();
 				break;
 			}
 			case 36:
@@ -2656,10 +2668,407 @@ void folksamEV(void)
 	printf("EV\n");
 }
 
-void sonionRH(void) 
+//START of CASE 35 Game Function
+void walkingPath(void)
 {
-	printf("RAOOL-HIG\n");
+    int userSteps = 0;
+
+    printf("\nThe path you follow splits and curls around a wicked looking tree\nChoose 1 or 2:\n");
+    printf("1) Follow the left path toward the sound of cheering.\n");
+    printf("2) Follow the right path filled with mist and a soft light that can be seen through it.\n");
+    printf("or type 99 anytime to return to the main doors room.\n");
+    printf("Your choice: ");
+    scanf("%d", &userSteps);
+
+    if (userSteps == 99)
+    {
+        return;
+    }
+
+    if (userSteps == 1)
+    {
+        if (dicePitTournament() == 0)
+        {
+            printf("\nYou failed the Dice Pit and are returned to the start of the path!\n");
+            walkingPath();
+            return;
+        }
+    }
+
+    else if (userSteps == 2)
+    {
+        printf("\nThe mist swallows you whole...\n");
+        printf("You stumble blindly and find yourself back in the main hall.\n");
+        return;
+    }
+
+    printf("\nThe path straightens and lanterns flicker ahead.\nchoose 1 or 2:\n");
+    printf("1) Approach the crooked tavern perched on the cliffside.\n2) Wander into the unlit woods beside the trail.\n");
+    printf("99) Return to the main hall.\n");
+    printf("Your choice: ");
+    scanf("%d", &userSteps);
+
+    if (userSteps == 99)
+    {
+        return;
+    }
+
+    if (userSteps == 1)
+    {
+        if (highLowTavern() == 0)
+        {
+            printf("\nYou failed the tavern game and are returned to the start of the path!\n");
+            walkingPath();
+            return;
+        }
+    }
+    else if (userSteps == 2)
+    {
+        printf("\nThe woods grow silent. A shriek sends you running back to the main hall.\n");
+        return;
+    }
+
+    printf("\nThe path narrows into a twisting canyon.\nchoose 1 or 2:\n");
+    printf("1) Walk toward the echoing footsteps ahead.\n2) Climb the unstable rocks to the side.\n");
+    printf("99) Return to the main hall.\n");
+    printf("Your choice: ");
+    scanf("%d", &userSteps);
+
+    if (userSteps == 99) 
+    {
+        return;
+    }
+
+    if (userSteps == 1)
+    {
+        if (battleEncounter() == 0)
+        {
+            printf("\nYou were defeated in battle and are returned to the start of the path!\n");
+            walkingPath();
+            return;
+        }
+    }
+    else if (userSteps == 2)
+    {
+        printf("\nThe rocks crumble beneath you! You slide all the way back to the main hall.\n");
+        return;
+    }
+
+    printf("\nThe path opens into an ancient grove.\nchoose 1 or 2:\n");
+    printf("1) Approach the moss-covered statue.\n2) Step into the pool of shimmering water.\n");
+    printf("99) Return to the main hall.\n");
+    printf("Your choice: ");
+    scanf("%d", &userSteps);
+
+    if (userSteps == 99)
+    {
+        return;
+    }
+
+    if (userSteps == 1)
+    {
+        if (riddleGateOne() == 0)
+        {
+            printf("\nThe statue rejects your answer and you are returned to the start of the path!\n");
+            walkingPath();
+            return;
+        }
+    }
+    else if (userSteps == 2)
+    {
+        printf("\nThe water flashes bright white. You awaken in the main hall.\n");
+        return;
+    }
+
+    printf("\nThe path becomes a long corridor etched with glowing runes.\nchoose 1 or 2:\n");
+    printf("1) Walk toward the massive iron door.\n2) Touch the glowing runes on the wall.\n");
+    printf("99) Return to the main hall.\n");
+    printf("Your choice: ");
+    scanf("%d", &userSteps);
+
+    if (userSteps == 99)
+    {
+        return;
+    }
+
+    if (userSteps == 1)
+    {
+        if (riddleGateTwo() == 0)
+        {
+            printf("\nThe door laughs at your failure and you are returned to the start of the path!\n");
+            walkingPath();
+            return;
+        }
+    }
+    else if (userSteps == 2)
+    {
+        printf("\nThe runes flare violently! A shockwave blasts you back to the main hall.\n");
+        return;
+    }
+
+    printf("\nAs you take your final step, the air shimmers.\n");
+    printf("A robed wizard materializes before you, staff glowing faintly.\n");
+    printf("\"You've reached the end of your journey,\" he says.\n");
+    printf("\"Now return to the doors that brought you here.\"\n\n");
+
+    printf("\nA flash of light engulfs the path...\n");
+    printf("You are standing once again in the main hall of doors.\n");
 }
+
+int dicePitTournament(void)
+{
+    int round;
+    int playerRoll, computerRoll;
+    int playerWins = 0, computerWins = 0;
+    char choice;
+
+    printf("\nWelcome to the Dice Pit of DOOM!\n\n");
+
+    for (round = 1; round <= 5; round++)
+    {
+        printf("----- Round %d -----\n", round);
+        printf("Enter Y to roll; Q to quit this tournament: ");
+        scanf(" %c", &choice);
+
+        if (choice == 'Q' || choice == 'q')
+        {
+            printf("\nYou step away from the Dice Pit early.\n");
+            return 0;
+        }
+
+        playerRoll = 1 + rand() % 6;
+        computerRoll = 1 + rand() % 6;
+
+        printf("\nYou rolled:\n");
+        printDice(playerRoll);
+
+        printf("\nComputer rolled:\n");
+        printDice(computerRoll);
+
+        if (playerRoll > computerRoll)
+        {
+            playerWins++;
+        }
+        else if (computerRoll > playerRoll)
+        {
+            computerWins++;
+        }
+
+        printf("\nScore: You %d - Computer %d\n\n", playerWins, computerWins);
+    }
+
+    printf("===== Tournament Over =====\n");
+
+    if (playerWins > computerWins)
+    {
+        printf("You are victorious in the Dice Pit!\n");
+        return 1;
+    }
+    else
+    {
+        printf("You have been defeated in the Dice Pit.\n");
+        return 0;
+    }
+}
+
+void printDice(int value)
+{
+    printf("╔═══════╗\n");
+    switch (value)
+    {
+        case 1: printf("║       ║\n║   *   ║\n║       ║\n"); break;
+        case 2: printf("║ *     ║\n║       ║\n║     * ║\n"); break;
+        case 3: printf("║ *     ║\n║   *   ║\n║     * ║\n"); break;
+        case 4: printf("║ *   * ║\n║       ║\n║ *   * ║\n"); break;
+        case 5: printf("║ *   * ║\n║   *   ║\n║ *   * ║\n"); break;
+        case 6: printf("║ *   * ║\n║ *   * ║\n║ *   * ║\n"); break;
+    }
+    printf("╚═══════╝\n");
+}
+
+int highLowTavern(void)
+{
+    int currentCard = 1 + rand() % 13;
+    int nextCard;
+    char guess;
+    int score = 0;
+
+    printf("\nYou enter a smoky tavern. A man grins: \"Higher or Lower?\"\n\n");
+
+    for (int i = 1; i <= 5; i++)
+    {
+        printf("~~~~ Round %d ~~~~~\n", i);
+        printf("Current card:\n");
+        printCard(currentCard);
+
+        printf("Higher (H) or Lower (L)? (Q to quit): ");
+        scanf(" %c", &guess);
+
+        if (guess == 'Q' || guess == 'q')
+        {
+            printf("\nYou leave the table early.\n");
+            return 0;
+        }
+
+        nextCard = 1 + rand() % 13;
+        printf("Next card:\n");
+        printCard(nextCard);
+
+        if ((guess == 'H' || guess == 'h') && nextCard > currentCard)
+        {
+            score++;
+            printf("Correct! +1 point.\n");
+        }
+        else if ((guess == 'L' || guess == 'l') && nextCard < currentCard)
+        {
+            score++;
+            printf("Correct! +1 point.\n");
+        }
+        else
+        {
+            printf("Wrong guess.\n");
+        }
+
+        currentCard = nextCard;
+        printf("Current score: %d\n\n", score);
+    }
+
+    printf("===== Tavern Game Over =====\n");
+
+    if (score >= 3)
+    {
+        printf("You leave the table a winner.\n");
+        return 1;
+    }
+    else
+    {
+        printf("The house wins this time.\n");
+        return 0;
+    }
+}
+
+void printCard(int value)
+{
+    const char *cardNums[13] = { "A","2","3","4","5","6","7","8","9","10","J","Q","K" };
+
+    printf("  _____\n");
+    printf(" |%2s   |\n", cardNums[value - 1]);
+    printf(" |     |\n");
+    printf(" |   %2s|\n", cardNums[value - 1]);
+    printf(" |_____|\n");
+}
+
+int battleEncounter(void)
+{
+    int playerHP = 20;
+    int enemyHP = 5 + rand() % 20;
+    int dmgP, dmgE;
+    char action;
+
+    printf("\nA shadowy figure blocks your path!\n");
+
+    while (playerHP > 0 && enemyHP > 0)
+    {
+        printf("Your HP: %d | Enemy HP: %d\n", playerHP, enemyHP);
+        printf("Attack (A) or Retreat (R): ");
+        scanf(" %c", &action);
+
+        if (action == 'R' || action == 'r')
+        {
+            printf("\nYou retreat from battle.\n");
+            return 0;
+        }
+
+        dmgP = 1 + rand() % 6;
+        enemyHP -= dmgP;
+        printf("You strike for %d damage!\n", dmgP);
+
+        if (enemyHP <= 0)
+        {
+            break;
+        }
+
+        dmgE = 1 + rand() % 6;
+        playerHP -= dmgE;
+        printf("The enemy hits you for %d damage!\n", dmgE);
+    }
+
+    if (playerHP > 0)
+    {
+        printf("\nYou have defeated your foe!\n");
+        return 1;
+    }
+    else
+    {
+        printf("\nYou fall in battle...\n");
+        return 0;
+    }
+}
+
+int riddleGateOne(void)
+{
+    int ans;
+
+    printf("\nA stone statue speaks:\n");
+    printf("\"I hold a value, small or grand,\nMutable or constant, at your command.\n");
+    printf(" What am I?\"\n\n");
+
+    printf("1) A function\n2) A variable\n3) A pointer\n");
+    printf("Your answer: ");
+    scanf("%d", &ans);
+
+    if (ans == 2)
+    {
+        printf("\nCorrect! The statue hums with approval.\n");
+        return 1;
+    }
+    else
+    {
+        printf("\nIncorrect. The statue's eyes dim in disappointment.\n");
+        return 0;
+    }
+}
+
+int riddleGateTwo(void)
+{
+    int ans;
+
+    printf("\nThe iron door rumbles:\n");
+    printf("\"I have cities but no houses...\n");
+    printf(" I have mountains but no trees...\n");
+    printf(" I have water but no fish...\n");
+    printf(" What am I?\"\n\n");
+
+    printf("1) A map\n2) A dream\n3) A desert\n");
+    printf("Your answer: ");
+    scanf("%d", &ans);
+
+    if (ans == 1)
+    {
+        printf("\nCorrect! The door unlocks... then slowly closes again.\n");
+        return 1;
+    }
+    else
+    {
+        printf("\nWrong. The door chuckles and remains shut.\n");
+        return 0;
+    }
+}
+
+void exitFunction(void)
+{
+    int code = 0;
+    printf("\nEnter 99 to return: ");
+    while (code != 99)
+    {
+        scanf("%d", &code);
+        if (code != 99)
+        {
+            printf("Please enter 99 to return: ");
+        }
+    }
+}
+//END of CASE 35 Game Function
 
 void jbInit()
 {
