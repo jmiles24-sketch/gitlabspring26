@@ -25,12 +25,12 @@
 //Meretrout(J.Q)
 //Ivan Peralta
 //Dominic Carreto
-
+//Jeremiah R Pallera-Bautista
 //Esthepanie Izaguirre
-
 //Cristobal Yepez
 //Andrew Michel
 //Joseph Hernandez
+
 
 
 
@@ -56,6 +56,7 @@ void room44cups(int *playerhealth, int *playerwins);
 
 void coolGame(void);
 int iAmLazy(int);
+void jpbFun(void);
 
 
 
@@ -1103,6 +1104,7 @@ int main(int argc, char *argv[])
 			}
 			case 53:
 			{
+				jpbFun();
 				puts("room53");
 				break;
 			}
@@ -9930,6 +9932,12 @@ int iAmLazy(int choices)
   return option;
 }
 
+void jpbFun(void)
+{
+	puts("JPBroom53");
+}
+
+
 
 void room_33eizaguirre(void)
 {
@@ -10617,6 +10625,7 @@ int skarkBay(void)
 
         return rando2;
 }
+
 
 
 
