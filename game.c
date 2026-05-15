@@ -25,9 +25,13 @@
 //Meretrout(J.Q)
 //Ivan Peralta
 //Dominic Carreto
+
+//Esthepanie Izaguirre
+
 //Cristobal Yepez
 //Andrew Michel
 //Joseph Hernandez
+
 
 
 
@@ -151,9 +155,12 @@ int room31GetCardValue(int cardIndex, int *currentTotal);
 void room31PlayerTurn(int used[], char deck[][30], int *playerTotal);
 void room31DealerTurn(int used[], char deck[][30], int *dealerTotal,int dealerCard1, int dealerCard2);
 
+
+void room_33eizaguirre(void);
 void cmeremikwu2(void);
 void josephhernandez(void);
 int skarkBay(void);
+
 
 int main(int argc, char *argv[])
 {
@@ -741,7 +748,8 @@ int main(int argc, char *argv[])
 			}
 			case 33:
 			{
-				puts("room33");
+				room_33eizaguirre();
+				puts("Welcome to HOWL'S THE MOVING CASTLE");
 				break;
 			}
 			case 34:
@@ -9793,6 +9801,242 @@ int iAmLazy(int choices)
   return option;
 }
 
+
+void room_33eizaguirre(void)
+{
+	int choice;
+	int courage = 100;
+	int doneso = 0;
+	int howl[3] ={0, 0, 0};
+
+	printf("=================================\n");	
+	printf(" HOWL'S MOVING CASTLE QUEST!!!\n");
+	printf("=================================\n\n");
+
+	printf("                []\n");
+	printf("             .:[]:_\n");
+	printf("           .: :[]: :-.\n");
+	printf("         .: : :[]: : : :-.\n");
+	printf("     _..: : : :[]: : : : :--._\n");
+	printf("    /__________________________\\\\\n");
+	printf("     ||  HOWL'S CASTLE   ||\n");
+	printf("     ||__________________||\n");
+	printf("\n You wake up the Foggy Village.");
+	printf("A giant moving castle is walking across the hill.");
+	printf("What will the wind wisper.");
+
+
+	while(doneso == 0)
+	{
+		int choice;
+		printf("Courage: %d\n",courage);
+		printf("\n Choose your path: ");
+
+		printf("1. Enter the ENCHANTED MARKET\n");
+		printf("2. Explore the WHISPERING FOREST\n");
+		printf("3. Eat HEALING BREAD\n");
+		printf("4. Check Inventory\n");
+		printf("5. Approach THE MOVING CASTLE\n");
+		printf("6. QUIT ADVENTURE\n");
+
+		printf("\n Enter your choice: ");
+		scanf("%d",&choice);
+
+		if(choice == 1)
+		{
+			int market = rand() %3;
+			printf("\n A magical lanterns glows around you........  \n");
+
+			if(market == 0)
+			{
+				printf("A misterious wizard gives you a MAGICAL RING!!!!! \n");
+				howl[0] = 1;
+				printf("\n      .--------.\n");
+				printf("    .'  O    O  '.\n");
+				printf("   /              \\\n");
+				printf("  |   MAGIC RING   |\n");
+				printf("   \\\\            /\n");
+				printf("    '.__________.'\n");
+			}
+			else if(market == 1)
+			{
+				printf("You buy enchanted  HEALING HERBS\n");
+				howl[1]++;
+
+				printf("\n       ______\n");
+				printf("     /      \\\n");
+				printf("    / BREAD  \\\n");
+				printf("   /__________\\\n");
+			}
+
+			else
+			{
+				printf("The WITCH OF THE WASTE is scare of you!\n");
+				courage = 15;
+
+				printf("\n      /\\\n");
+				printf("     /  \\\n");
+				printf("    | () |\n");
+				printf("    |____|\n");
+				printf("   /|/\\|\\\\\n");
+			}
+		}
+		else if(choice == 2)
+		{
+			int forest = rand() %3;
+
+			printf("\n        &&& &&  & &&\n");
+			printf("    && &\\|& ()|/ @, &&\n");
+			printf("    &\\/(/&/&||/& /_/)_&/_&\n");
+			printf(" &() &\\/&|()|/&\\ '%% \" & ()\n");
+			printf("&_\\_&&_\\ |& |&&/&__%%_/_& &&\n");
+
+			if(forest == 0)
+			{
+				printf("The fire demon is leaving behiing a FIRE CRYSTAL!!! \n");
+				howl[2] = 1;
+
+				printf("\n         /\\\n");
+				printf("        /  \\\n");
+				printf("       / /\\ \\\n");
+				printf("      /_/  \\_\\\n");
+			}
+			else if(forest == 1)
+			{
+				printf("The Shadow spirits chase you through the forest!!!\n");
+				courage = 20;
+
+				printf("\n     .-.\n");
+				printf("    (o o) boo!\n");
+				printf("    | O \\\n");
+				printf("     \\\\   \\\n");
+				printf("      '~~~'\n");
+			}
+			else
+			{
+				printf("You just discover a PEACEFUL hidden lake!!! \n");
+				courage +=10;
+
+				printf("\n   ~ ~ ~ ~ ~ ~ ~\n");
+				printf(" ~     LAKE     ~\n");
+				printf("   ~ ~ ~ ~ ~ ~ ~\n");
+			}
+		}
+		else if(choice == 3)
+		{
+			if(howl[1] > 0)
+			{
+				printf("\nYou ate the healing bread!!!\n ");
+				printf("MAGIC restores your courage!!\n");
+				courage += 25;
+				howl[1]--;
+
+
+				printf("\n         (  .      )\n");
+				printf("     )           (              )\n");
+				printf("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n");
+				printf("      CALCIFER THE FIRE DEMON\n");
+			}
+			else 
+			{
+				printf("\n You have no healing bread!!!\n");
+			}
+		}
+		else if(choice ==4)
+		{
+			printf("\n============= HOWL'S  =============\n");
+			if(howl[0] == 1)
+				printf("Magic Ring: YES\n");
+			else
+				printf("Magic Ring: NO\n");
+				printf("Healing Bread: %d\n", howl[1]);
+
+				if(howl[2] == 1)
+					printf("Fire Crystal: YES\n");
+				else
+					printf("Fire Crystal: NO");
+		}
+		else if(choice == 5)
+		{
+			printf("\nYou have got near THE MOVING CASTLE...\n");
+			 if(howl[0] == 1 && howl[2] == 1)
+			 {
+				 int final = rand()%2;
+
+				printf("=========================================\n");
+				printf("      INSIDE HOWL'S MOVING CASTLE\n");
+				printf("=========================================\n");
+
+				if(final == 0)
+				{
+					printf("Howl shows up in a bunch of FEATHERS!\n");
+					printf("You RESTORE the clastle's magic .\n");
+
+					printf(" * .''. * .''. *\n");
+					printf(" * * :_\\/_: * * :_\\/_: * \n");
+					printf(" * * : /\\ : * * : /\\ : \n");
+					printf(" * * '..' * * '..' * \n");
+					printf(" * * \n");
+
+					printf(" * * * * * \n");
+					printf(" BOOM! POW! \n");
+					printf(" * * * * * \n");
+
+					printf(" .''. * .''. * \n");
+					printf(" :_\\/_: * :_\\/_: \n");
+					printf(" : /\\ : : /\\ : * \n");
+					printf(" '..' * '..' \n");
+
+					printf("***************");
+					printf("\nYOU WIN!!!\n");
+					printf("***************");
+				}
+				else
+				{
+					printf("The WITCH OF THE WASTE curses the castle!!!\n");
+
+					printf("  .-''''-.\n");
+					printf(" /  .--.  \\\n");
+					printf("|  /    \\  |\n");
+					printf("| |  ; ; | |\n");
+					printf("| |  ____| |\n");
+					printf("|  \\____/  |\n");
+					printf(" \\        /\n");
+					printf("  '-.__.-'\n");
+
+					printf("***************");
+                                        printf("\nGAME OVER!!!\n");
+                                        printf("***************");
+				}
+				doneso = 1;
+			 }
+			 else
+			 {
+				 printf("The castle door remains sealed\n");
+				 printf("You need the MAGIC RING and FIRE CRYSTAL\n");
+			 }
+		}
+		else if(choice == 6)
+		{
+			printf("\nThe castle disappears into the clouds...\n");
+			printf("Your adventure ends HERE!!!\n");
+
+			doneso = 1;
+		}
+		else
+		{
+			printf("\nThat path does not exist.\n");
+		}
+		if(courage <= 0)
+		{
+			printf("\nDARK MAGIC consumes your courage...\n");
+			printf("GAME OVER!!!\n");
+			
+			doneso = 1;	
+		}
+	}
+}
+
 void room31TwentyOneGame(void)
 {
 	printf("\nThe goal of the game is to get a hand closest to 21 without going over(bust) or else you'll lose.\n");
@@ -10304,5 +10548,6 @@ void stanPush(void)
     	} while(stanChoice != 6);
 
 }
+
 
 
