@@ -6242,8 +6242,132 @@ void ncInitial(void)
 
 void mtorres(void)
 {
-	printf("MT");
-}
+	srand(time(NULL));
+        int points=0;
+        int again;
+
+       //if the user enter any number that is not 1 they will exit the game, if they enter 1 they can play again
+       char *reptiles[4] ={"Gecko","Chameleon","Iguana","Turtle"};
+       char *fruits[4] ={"Cherry","Raspberry","Strawberry","Chranberry"};
+       char *states[4] ={"Alabama","Alaska","Arizona","Arkansas"};
+       char *deserts[4] ={"Gelato","Tiramisu","Cheesecake","Macarons"};
+       char *aquatic[4]={"Seal","Octopus","Dolphin","Whale"};
+       printf("Welcome to word guessing game.\n");
+       printf("With every word you get you right you earn points.\n");
+            
+        do   
+        {
+          int myguess = rand() % 4;
+          int category;
+          int userans;
+          printf("First choose which caterogy.\n");
+          printf("---------------------------------\n");
+          printf("1. Reptile animals\n");
+          printf("2. Red Fruits\n");
+          printf("3. States that Start with letter A\n");
+          printf("4. Popular Deserts\n");
+          printf("5. Aquatic Animals\n");
+          printf("Enter the number of the category you want: ");
+          scanf("%d",&category);
+            
+         switch(category)
+         {
+            case 1:
+            printf("\nWhat reptiple do you think my guess is?\n");
+            printf("Here are the four options:\n");
+            printf("\nGecko = 0, Chameleon = 1, Iguana = 2, Turtle = 3\n");
+            printf("\nEnter the number based on the choice you want to make: ");
+            scanf("%d", &userans);
+            if(userans == myguess)
+            { 
+                printf("\nYou are correct!!!\n");
+                points++;
+            }
+            else
+            {
+                printf("\nYou are incorrect.\n");
+                printf("The correct option was option %d, %s.\n",myguess, reptiles[myguess]);
+            }
+            break;
+             
+            case 2:
+            printf("\nWhat fruit do you think my guess is?\n");
+            printf("Here are the four options:\n");
+            printf("\nCherry = 0, Raspberry = 1, Strawberry = 2, Cranberry = 3\n");
+            printf("\nEnter the number based on the choice you want to make: ");
+            scanf("%d", &userans);
+            if(userans == myguess){
+                printf("\nYou are correct!!!\n");
+                 points++;
+            }
+            else
+            {
+                printf("\nYou are incorrect.\n");
+		printf("The correct option was option %d, %s.\n",myguess, fruits[myguess]);
+            }
+            break;
+            case 3:
+            printf("\nWhat state do you think my guess is?\n");
+            printf("Here are the four options.\n");
+            printf("Enter the number associated with the word of your choice: ");
+            printf("\nAlabama = 0, Alaska = 1, Arizona = 2 Arkansas = 3\n");
+            printf("\nEnter the number based on the choice you want to make: ");
+            scanf("%d", &userans);
+            if(userans == myguess)
+            {
+                printf("\nYou are correct!!!\n");
+                 points++;
+            }
+            else
+            {
+                printf("\nYou are incorrect.\n");
+                printf("The correct option was option %d, %s.\n",myguess, states[myguess]);
+            }
+            break;
+            case 4:
+            printf("\nWhat desert do you think my guess is?\n");
+            printf("Here are the four options:\n");
+	    printf("\nGelato = 0, Tiramisu = 1, Cheesecake = 2, Macaron = 3\n");
+            printf("\nEnter the number based on the choice you want to make: ");
+            scanf("%d", &userans);
+            if(userans == myguess){
+                printf("\nYou are correct!!!\n");
+                 points++;
+            }
+            else
+            {   
+                printf("\nYou are incorrect.\n");
+                printf("The correct option was option %d, %s.\n",myguess, deserts[myguess]);
+            }
+            break;
+            case 5:
+            printf("\nWhat aquatic anaimal do you think my guess is?\n");
+            printf("Here are the four options:\n");
+            printf("\nSeal = 0, Octopus = 1, Dolphin = 2, Whale = 3\n");
+            printf("\nEnter the number based on the choice you want to make: ");
+            scanf("%d", &userans);
+            if(userans == myguess){
+                printf("\nYou are correct!!!\n");
+                 points++;
+            }
+	    else
+            {
+                printf("\nYou are incorrect.\n");
+                printf("The correct option was option %d, %s.\n",myguess, aquatic[myguess]);
+            }
+            break;
+            default:
+                printf("Invalid choice.\n");
+
+         }
+
+        printf("\nEnter 1 to contine playing or any other number to exit game :  ");
+        scanf("%d", &again);
+        }while(again == 1);
+
+        printf("\nTotal points = %d\n",points);
+        printf("Thank you for playing.\n");
+}//end of mtorres
 
 
 void hOsuna(void)
