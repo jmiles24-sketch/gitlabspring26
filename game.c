@@ -1580,12 +1580,130 @@ void stanPush(void)
 	puts(" S J \n");
 }
 
-
-
 void nnawshin()
 {
-	printf("N.N\n");
-}	
+    int choice;
+    int score = 0;
+    int steps = 0;
+    int randomEvent;
+
+    printf("\nN.N\n");
+    printf("Welcome to Room 18: The Lost Library\n");
+    printf("You are trapped inside a mysterious library.\n");
+    printf("Make 5 decisions to escape.\n");
+
+    while(steps < 5)
+    {
+        printf("\nDecision %d\n", steps + 1);
+
+        if(steps == 0)
+        {
+            printf("1. Walk to the glowing bookshelf\n");
+            printf("2. Walk to the dark hallway\n");
+            scanf("%d", &choice);
+
+            if(choice == 1)
+            {
+                printf("You found a lantern.\n");
+                score++;
+            }
+            else
+            {
+                printf("The hallway feels cold and empty.\n");
+            }
+        }
+
+        else if(steps == 1)
+        {
+            printf("1. Open an old book\n");
+            printf("2. Ignore the book\n");
+            scanf("%d", &choice);
+
+            randomEvent = rand() % 2;
+
+            if(choice == 1)
+            {
+                if(randomEvent == 0)
+                {
+                    printf("You found a secret clue inside the book.\n");
+                    score++;
+                }
+                else
+                {
+                    printf("Dust flies into your face.\n");
+                }
+            }
+            else
+            {
+                printf("You continue walking carefully.\n");
+            }
+        }
+
+        else if(steps == 2)
+        {
+            printf("1. Pick up a silver key\n");
+            printf("2. Pick up a map\n");
+            scanf("%d", &choice);
+
+            if(choice == 1 || choice == 2)
+            {
+                printf("You keep the item in your bag.\n");
+                score++;
+            }
+        }
+
+        else if(steps == 3)
+        {
+            printf("1. Climb the moving shelf\n");
+            printf("2. Run under the shelf\n");
+            scanf("%d", &choice);
+
+            if(choice == 1)
+            {
+                printf("You safely climb over the shelf.\n");
+                score++;
+            }
+            else
+            {
+                printf("The shelf almost crushes you.\n");
+            }
+        }
+
+        else if(steps == 4)
+        {
+            printf("1. Unlock the exit door\n");
+            printf("2. Kick the door open\n");
+            scanf("%d", &choice);
+
+            if(choice == 1)
+            {
+                printf("The key unlocks the door.\n");
+                score++;
+            }
+            else
+            {
+                printf("The door slowly opens.\n");
+            }
+        }
+
+        steps++;
+    }
+
+    printf("\nFinal Score: %d\n", score);
+
+    if(score >= 3)
+    {
+        printf("You escaped the Lost Library successfully!\n");
+    }
+    else
+    {
+        printf("You escaped, but the library stole your memories.\n");
+    }
+
+    printf("Returning to the main menu...\n");
+}
+
+
 
 void phas22(void)
 {
