@@ -96,7 +96,7 @@ void PogoAM(void);
 void aaGM(void);
 void room49game(void);
 void dleyva14(void);
-void crazy49adventure();
+void crazy49adventure(void);
 
 void sgarcia6(void);
 void GuckMan(void);
@@ -2175,7 +2175,7 @@ void room49game(void)
 
 }
 
-void crazy49adventure()
+void crazy49adventure(void)
 {
 	int choice;
 	int randomEvent;
