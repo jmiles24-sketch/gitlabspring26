@@ -120,7 +120,7 @@ int jwStory(void);
 bool getChoiceDL(void);
 void jkFun(void);
 void jkRoom41(void); 
-
+void cmeremikwu2(void);
 
 
 int main(int argc, char *argv[])
@@ -912,6 +912,7 @@ int main(int argc, char *argv[])
 			case 70:
                         {
                                 puts("room70");
+                                cmeremikwu2();
                                 break;
                         }
 			case 71:
@@ -2659,6 +2660,11 @@ void folksamEV(void)
 void sonionRH(void) 
 {
 	printf("RAOOL-HIG\n");
+}
+
+void cmeremikwu2(void)
+{
+    printf("CM\n");
 }
 
 void jbInit()
