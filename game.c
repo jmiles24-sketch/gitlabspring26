@@ -69,7 +69,7 @@ void JLeyva(void);
 void fish(void);
 void printStudent30(void);
 void gameroom30(void);
-
+void JCgame(void);
 void printInitialsAjewett(void);
 void startRoom9(void);
 
@@ -105,7 +105,8 @@ void WMRoom(void);
 void act1Version(void);
 
 void nhfun(void);
-void printInitialsAngelM(void);
+void room36AngelM(void);
+int retryRoom36(void);
 
 void dGMyName(void);
 bool pinballPark(int max_player_HP, int max_enemy_HP, int max_numOfPotions);
@@ -126,6 +127,8 @@ int room31HitOrStand(void);
 int room31GetCardValue(int cardIndex, int *currentTotal);
 void room31PlayerTurn(int used[], char deck[][30], int *playerTotal);
 void room31DealerTurn(int used[], char deck[][30], int *dealerTotal,int dealerCard1, int dealerCard2);
+
+void cmeremikwu2(void);
 
 int main(int argc, char *argv[])
 {
@@ -675,6 +678,7 @@ int main(int argc, char *argv[])
 			}
 			case 28:
 			{
+				JCgame();
 				puts("room28");
 				break;
 			}
@@ -726,8 +730,7 @@ int main(int argc, char *argv[])
 			}
 			case 36:
 			{
-				printInitialsAngelM();
-				puts("room36");
+				room36AngelM();
 				break;
 			}
 			case 37:
@@ -921,6 +924,7 @@ int main(int argc, char *argv[])
 			case 70:
                         {
                                 puts("room70");
+                                cmeremikwu2();
                                 break;
                         }
 			case 71:
@@ -1193,8 +1197,88 @@ typedef struct
 
 
 void afFun(void)
-{ 
-	puts("AFroom52");
+{
+    printf("\n room 52: The crypt of the lost bananas of the curator\n");
+
+    printf("\n\"welcome to my crypt, you will have to go through banana related test to get my reward.\"\n");
+    printf("you are dropped down a hole into the crypt\n");
+
+    int Answers[5] = {2, 2, 1, 3, 5}; // array
+    int decision;
+    int start = rand() % 5; // random number
+    int i;
+    int q;
+
+    for(i = 0; i < 5; i++) // loop
+    {
+        q = (start + i) % 5;
+
+        switch(q)
+        {
+            case 0:
+                printf("\nYou find five bananas on an altar. Only one is safe to touch.\n");
+                printf("1) Green banana\n");
+                printf("2) yellow banana\n");
+                printf("3) Black banana\n");
+                printf("4) Moldy banana\n");
+                printf("5) Glowing red banana\n");
+                break;
+
+            case 1:
+                printf("\nA giant stone door blocks your path.\n");
+                printf("1) Kick the door open with all you might\n");
+                printf("2) Press the yellow banana symbol\n");
+                printf("3) Scream at the door\n");
+                printf("4) Run away\n");
+                printf("5) Sleep on the floor\n");
+                break;
+
+            case 2:
+                printf("\nThe curator appears and demands respect.\n");
+                printf("1) Bow and offer a banana\n");
+                printf("2) Throw a peel at him\n");
+                printf("3) call him mojo jojo\n");
+                printf("4) Challenge to a banana eating competition\n");
+                printf("5) make fun of his mom\n");
+                break;
+
+            case 3:
+                printf("\nA pit opens below you. Five vines hang overhead.\n");
+                printf("1) Grab the red vine\n");
+                printf("2) Grab the blue vine\n");
+                printf("3) Grab the yellow vine\n");
+                printf("4) Jump into the pit where the glortrox is ready to eat you\n");
+                printf("5) Stand still and do nothing\n");
+                break;
+
+            case 4:
+                printf("\nYou reach the treasure chamber with five chests.\n");
+                printf("1) Open the rusty chest\n");
+                printf("2) Open the tiny chest\n");
+                printf("3) Open the cracked chest\n");
+                printf("4) Open the loud chest\n");
+                printf("5) Open the banana-shaped chest\n");
+                break;
+        }
+
+        printf("\nYour choice (1-5): ");
+        scanf("%d", &decision);
+
+        if(decision == Answers[q])
+        {
+            printf("\nCorrect!\n");
+        }
+        else
+        {
+            printf("\nWrong... no banana for you.\n");
+            printf("Returning to main room...\n\n");
+            return;
+        }
+    }
+
+    printf("\nYou survived Room 52 and pleased the curator!\n");
+    printf("He rewards you with a GOLDEN BANANA!!!\n");
+    printf("Returning to main room...\n\n");
 }
 
 void jkFun(void)
@@ -2670,6 +2754,11 @@ void sonionRH(void)
 	printf("RAOOL-HIG\n");
 }
 
+void cmeremikwu2(void)
+{
+    printf("CM\n");
+}
+
 void jbInit()
 {
 	puts("jbRoom17");
@@ -3216,7 +3305,6 @@ void JLeyva(void)
 {
 	printf("JL");
 }
-
 void fish(void) 
 {
 	printf("JF");
@@ -4737,8 +4825,207 @@ void hOsuna(void)
         printf("\nHAO\n");
 }
 
+//function prototype
+int getLuck(int luck[], int size);
+void JCgame(void)
+{
+    printf("JC\n");
 
 
+    int choice = 0;
+    int health = 100;
+    int size = 10;
+    int luck[10] = {1,2,3,4,5,6,7,8,9,10};
+    char *weapons[3] = {"Katana", "Box Cutter", "Arrow"};
+    char *randomWeapon = weapons[rand() % 3];
+	int giantFrog = 100;
+	int attack = 0;
+
+    printf("You went camping with your friends.\n");
+    printf("Nighttime comes around. You and your friends go to bed.\n");
+    printf("A loud crow scream awakens you.\n");
+    printf("Your friends are gone...\n");
+
+    // Choice 1
+    printf("\nHealth: %d\n", health);
+    printf("1. Go outside the tent\n");
+    printf("0. Stay inside the tent\n");
+    scanf("%d", &choice);
+
+    while(choice != 0 && choice != 1)
+    {
+        printf("Invalid input. Enter 1 or 0: ");
+        scanf("%d", &choice);
+    }
+
+    if(choice == 1)
+    {
+        printf("You step outside and hear movement nearby.\n");
+    }
+    else
+    {
+        printf("You stay inside, but something scratches the tent.\n");
+        health -= 10;
+    }
+
+    // Choice 2
+    printf("\nHealth: %d\n", health);
+    printf("You find a %s on the ground.\n", randomWeapon);
+    printf("1. Pick it up\n");
+    printf("0. Leave it\n");
+    scanf("%d", &choice);
+
+    while(choice != 0 && choice != 1)
+    {
+        printf("Invalid input. Enter 1 or 0: ");
+        scanf("%d", &choice);
+    }
+
+    if(choice == 1)
+    {
+        printf("You take the %s with you.\n", randomWeapon);
+    }
+    else
+    {
+        printf("You leave the weapon behind.\n");
+    }
+
+    // Choice 3
+    printf("\nHealth: %d\n", health);
+    printf("You see two paths in the woods.\n");
+    printf("1. Take the dark trail\n");
+    printf("0. Walk toward the lake\n");
+    scanf("%d", &choice);
+
+    while(choice != 0 && choice != 1)
+    {
+        printf("Invalid input. Enter 1 or 0: ");
+        scanf("%d", &choice);
+    }
+
+    if(choice == 1)
+    {
+        printf("You walk down the dark trail.\n");
+
+        if(getLuck(luck, size) <= 5)
+        {
+            printf("You trip over a root and lose 15 health.\n");
+            health -= 15;
+        }
+        else
+        {
+            printf("You safely follow the trail.\n");
+        }
+    }
+    else
+    {
+        printf("You walk toward the lake.\n");
+
+        if(getLuck(luck, size) <= 4)
+        {
+            printf("A Giant Frog splashes and scares you. You lose 10 health.\n");
+            health -= 10;
+			printf("You must attack it with your %s!\n", randomWeapon);
+			while(giantFrog>0)
+			{
+				printf("Giant Frog HP: %d\n", giantFrog);
+				printf("Type 1 for a regular attack! Type 2 for a heavy attack!: ");
+				scanf("%d", &attack);
+				while(attack != 1&&attack!=2)
+				{
+					printf("Only type 1 for a regular attack or type 2 for a heavy attack: ");
+					scanf("%d", &attack);
+				}
+				if(attack==1)
+				{
+					giantFrog -= 25;
+				}
+				else
+				{
+					giantFrog -= 50;
+				}
+				printf("Nice hit! Keep attacking!\n");
+			}
+			printf("Nice! You slayed the Giant Frog.\n");
+        }
+        else
+        {
+            printf("You find footprints near the lake.\n");
+        }
+    }
+
+    // Choice 4
+    printf("\nHealth: %d\n", health);
+    printf("You find an old cabin.\n");
+    printf("1. Go inside\n");
+    printf("0. Keep walking\n");
+    scanf("%d", &choice);
+
+    while(choice != 0 && choice != 1)
+    {
+        printf("Invalid input. Enter 1 or 0: ");
+        scanf("%d", &choice);
+    }
+
+    if(choice == 1)
+    {
+        printf("You enter the cabin.\n");
+
+        if(getLuck(luck, size) <= 5)
+        {
+            printf("A creature attacks you inside! You lose 25 health.\n");
+            health -= 25;
+        }
+        else
+        {
+            printf("You find a flashlight inside the cabin.\n");
+        }
+    }
+    else
+    {
+        printf("You keep walking through the woods.\n");
+        printf("The cold night makes you weaker. You lose 10 health.\n");
+        health -= 10;
+    }
+
+    // Choice 5
+    printf("\nHealth: %d\n", health);
+    printf("You hear your friends yelling for help nearby.\n");
+    printf("1. Run toward the voices\n");
+    printf("0. Hide behind a tree\n");
+    scanf("%d", &choice);
+
+    while(choice != 0 && choice != 1)
+    {
+        printf("Invalid input. Enter 1 or 0: ");
+        scanf("%d", &choice);
+    }
+
+    if(choice == 1)
+    {
+        if(health > 0)
+        {
+            printf("You run toward the voices and find your friends!\n");
+            printf("You all escape the forest together. You win!\n");
+        }
+    }
+    else
+    {
+        printf("You hide too long and the voices disappear.\n");
+        printf("You are lost in the woods. Game over.\n");
+    }
+
+    if(health <= 0)
+    {
+        printf("\nYour health reached 0.\n");
+        printf("You did not survive the forest.\n");
+    }
+}
+//function definition
+int getLuck(int luck[], int size)
+{
+    return luck[rand() % size];
+}
 
 void stanPush(void)
 {
@@ -5346,12 +5633,544 @@ void nhfun(void)
 	}
 }
 
-
-void printInitialsAngelM(void)
+void room36AngelM(void)
 {
-	printf("AM\n");
+	int choice;
+	int done = 0;
+	int alive = 1;
+	int hidFirst = 0;
+	int readNote = 0;
+	int hideCount = 0;
+	int leaveCount = 0;
+	int sanity = 4;
+	int timeLeft = 5;
+	int correctDoor = rand() % 3 + 1;
+
+	char *warnings[6] = {
+		"Stillness hides you.",
+		"Run before it sees you.",
+		"Voices lie.",
+		"The note wants to be read twice.",
+		"Breath without lungs is not life.",
+		"The quiet door is hungry."
+	};
+
+	puts("You enter Room 36.");
+	puts("The door locks behind you, and the lights die.");
+	puts("Something begins breathing from inside the walls.");
+	puts("A message is scratched into the floor:");
+	puts("\"Survival requires patience, but patience has a limit.\"");
+
+	while(done == 0 && alive == 1)
+	{
+		if(timeLeft <= 0)
+		{
+			puts("\nThe room goes completely silent.");
+			puts("You waited too long.");
+			puts("The creature finally learns the sound of your breathing.");
+			puts("It crawls from the wall and devours you in the dark.");
+			puts("You did not survive Room 36.");
+
+			if(retryRoom36() == 1)
+			{
+				done = 0;
+				alive = 1;
+				hidFirst = 0;
+				readNote = 0;
+				hideCount = 0;
+				leaveCount = 0;
+				sanity = 4;
+				timeLeft = 5;
+				correctDoor = rand() % 3 + 1;
+				puts("\nThe room resets around you...");
+				continue;
+			}
+			else
+			{
+				break;
+			}
+		}
+
+		if(sanity <= 0)
+		{
+			puts("\nYour mind breaks.");
+			puts("The warnings spin around you.");
+			puts("The doors melt into mouths.");
+			puts("You choose nothing, so the room chooses for you.");
+			puts("You are devoured by the room itself.");
+			puts("You did not survive Room 36.");
+
+			if(retryRoom36() == 1)
+			{
+				done = 0;
+				alive = 1;
+				hidFirst = 0;
+				readNote = 0;
+				hideCount = 0;
+				leaveCount = 0;
+				sanity = 4;
+				timeLeft = 5;
+				correctDoor = rand() % 3 + 1;
+				puts("\nThe room resets around you...");
+				continue;
+			}
+			else
+			{
+				break;
+			}
+		}
+
+		printf("\nSanity: %d | Time left: %d\n", sanity, timeLeft);
+		puts("What do you do?");
+		puts("1. Read the bloody note on the floor");
+		puts("2. Follow the crying voice in the corner");
+		puts("3. Open one of the three black doors");
+		puts("4. Hide under the broken table");
+		puts("5. Try to leave the room");
+		puts("6. Sit down and cry");
+
+		scanf("%d", &choice);
+		timeLeft--;
+
+		if(choice == 1)
+		{
+			if(hidFirst == 0)
+			{
+				puts("You kneel down to read the bloody note.");
+				puts("The floorboards creak beneath you.");
+				puts("Something behind the wall whispers, \"Too eager.\"");
+				puts("A hand breaks through the floor and drags you under.");
+				puts("You did not survive Room 36.");
+
+				if(retryRoom36() == 1)
+				{
+					done = 0;
+					alive = 1;
+					hidFirst = 0;
+					readNote = 0;
+					hideCount = 0;
+					leaveCount = 0;
+					sanity = 4;
+					timeLeft = 5;
+					correctDoor = rand() % 3 + 1;
+					puts("\nThe room resets around you...");
+					continue;
+				}
+				else
+				{
+					alive = 0;
+					done = 1;
+				}
+			}
+			else if(readNote == 1)
+			{
+				puts("You bend down to read the note again.");
+				puts("The letters rearrange themselves.");
+				puts("\"Greed for answers is still greed.\"");
+				puts("The blood on the paper crawls up your hands like veins.");
+				puts("The note has already learned your name.");
+				puts("You did not survive Room 36.");
+
+				if(retryRoom36() == 1)
+				{
+					done = 0;
+					alive = 1;
+					hidFirst = 0;
+					readNote = 0;
+					hideCount = 0;
+					leaveCount = 0;
+					sanity = 4;
+					timeLeft = 5;
+					correctDoor = rand() % 3 + 1;
+					puts("\nThe room resets around you...");
+					continue;
+				}
+				else
+				{
+					alive = 0;
+					done = 1;
+				}
+			}
+			else
+			{
+				int i;
+
+				puts("Because you hid first, the creature lost track of you.");
+				puts("All the warnings appear at once:");
+
+				for(i = 0; i < 6; i++)
+				{
+					printf("%d. \"%s\"\n", i + 1, warnings[i]);
+				}
+
+				puts("Some warnings help you. Some warnings want you dead.");
+				puts("Your sanity drops from trying to understand them.");
+				sanity--;
+
+				puts("\nThe bloody note reads:");
+
+				if(correctDoor == 1)
+				{
+					puts("\"Three doors wait in blackened stone.\"");
+					puts("\"The first screams because it is still afraid.\"");
+					puts("\"The second breathes because something wears it.\"");
+					puts("\"The third is silent because it already ate.\"");
+					puts("\"Choose the door that still fears death.\"");
+				}
+				else if(correctDoor == 2)
+				{
+					puts("\"Three doors wait in blackened stone.\"");
+					puts("\"The first screams, but tells no truth.\"");
+					puts("\"The second breathes, but has no lungs.\"");
+					puts("\"The third is silent because it already ate.\"");
+					puts("\"Choose the door that sounds alive, but is not.\"");
+				}
+				else
+				{
+					puts("\"Three doors wait in blackened stone.\"");
+					puts("\"The first screams to make you panic.\"");
+					puts("\"The second breathes to make you trust it.\"");
+					puts("\"The third is silent, not empty.\"");
+					puts("\"Choose the door that does not beg to be chosen.\"");
+				}
+
+				readNote = 1;
+			}
+		}
+		else if(choice == 2)
+		{
+			puts("You follow the crying voice.");
+			puts("It stops crying and starts laughing.");
+			puts("The thing in the corner was never human.");
+			puts("You did not survive Room 36.");
+
+			if(retryRoom36() == 1)
+			{
+				done = 0;
+				alive = 1;
+				hidFirst = 0;
+				readNote = 0;
+				hideCount = 0;
+				leaveCount = 0;
+				sanity = 4;
+				timeLeft = 5;
+				correctDoor = rand() % 3 + 1;
+				puts("\nThe room resets around you...");
+				continue;
+			}
+			else
+			{
+				alive = 0;
+				done = 1;
+			}
+		}
+		else if(choice == 3)
+		{
+			int doorChoice;
+
+			if(readNote == 0)
+			{
+				puts("You step toward the black doors without reading the note.");
+				puts("The handles twist by themselves.");
+				puts("All three doors open at once.");
+				puts("You hear claws sprinting from every direction.");
+				puts("You did not survive Room 36.");
+
+				if(retryRoom36() == 1)
+				{
+					done = 0;
+					alive = 1;
+					hidFirst = 0;
+					readNote = 0;
+					hideCount = 0;
+					leaveCount = 0;
+					sanity = 4;
+					timeLeft = 5;
+					correctDoor = rand() % 3 + 1;
+					puts("\nThe room resets around you...");
+					continue;
+				}
+				else
+				{
+					alive = 0;
+					done = 1;
+				}
+			}
+			else
+			{
+				puts("Three black doors stand in front of you.");
+				puts("Choose door 1, 2, or 3:");
+				scanf("%d", &doorChoice);
+
+				if(doorChoice == correctDoor)
+				{
+					printf("You open door %d.\n", doorChoice);
+					puts("The hallway beyond it is cold, narrow, and real.");
+					puts("Behind you, the room screams because it lost.");
+					puts("You survived Room 36 and return to the hallway.");
+					done = 1;
+				}
+				else if(doorChoice == 1)
+				{
+					puts("You open the first door.");
+					puts("The screaming stops instantly.");
+					puts("A mouth opens where the hallway should be.");
+					puts("It was not screaming in fear. It was calling you closer.");
+					puts("You did not survive Room 36.");
+
+					if(retryRoom36() == 1)
+					{
+						done = 0;
+						alive = 1;
+						hidFirst = 0;
+						readNote = 0;
+						hideCount = 0;
+						leaveCount = 0;
+						sanity = 4;
+						timeLeft = 5;
+						correctDoor = rand() % 3 + 1;
+						puts("\nThe room resets around you...");
+						continue;
+					}
+					else
+					{
+						alive = 0;
+						done = 1;
+					}
+				}
+				else if(doorChoice == 2)
+				{
+					puts("You open the second door.");
+					puts("Warm breath rolls across your face.");
+					puts("The door was not alive.");
+					puts("Something inside it was.");
+					puts("You did not survive Room 36.");
+
+					if(retryRoom36() == 1)
+					{
+						done = 0;
+						alive = 1;
+						hidFirst = 0;
+						readNote = 0;
+						hideCount = 0;
+						leaveCount = 0;
+						sanity = 4;
+						timeLeft = 5;
+						correctDoor = rand() % 3 + 1;
+						puts("\nThe room resets around you...");
+						continue;
+					}
+					else
+					{
+						alive = 0;
+						done = 1;
+					}
+				}
+				else if(doorChoice == 3)
+				{
+					puts("You open the third door.");
+					puts("There is no scream. No hand. No warning.");
+					puts("Only bones stacked neatly in the dark.");
+					puts("The silence was not empty.");
+					puts("It was chewing.");
+					puts("You did not survive Room 36.");
+
+					if(retryRoom36() == 1)
+					{
+						done = 0;
+						alive = 1;
+						hidFirst = 0;
+						readNote = 0;
+						hideCount = 0;
+						leaveCount = 0;
+						sanity = 4;
+						timeLeft = 5;
+						correctDoor = rand() % 3 + 1;
+						puts("\nThe room resets around you...");
+						continue;
+					}
+					else
+					{
+						alive = 0;
+						done = 1;
+					}
+				}
+				else
+				{
+					puts("That is not one of the doors.");
+					puts("The room punishes hesitation.");
+					sanity--;
+				}
+			}
+		}
+		else if(choice == 4)
+		{
+			hideCount++;
+
+			if(hideCount == 1)
+			{
+				puts("You crawl under the broken table and hold your breath.");
+				puts("Something walks around the room, dragging metal across the floor.");
+				puts("It stops inches away from you, then moves toward the far wall.");
+				puts("It leaves behind another warning scratched into the wood:");
+				puts("\"Now read.\"");
+				hidFirst = 1;
+			}
+			else
+			{
+				puts("You hide under the table again.");
+				puts("This time, the room does not make a sound.");
+				puts("A pale face slowly appears beneath the table beside yours.");
+				puts("\"I checked here already,\" it whispers.");
+				puts("You did not survive Room 36.");
+
+				if(retryRoom36() == 1)
+				{
+					done = 0;
+					alive = 1;
+					hidFirst = 0;
+					readNote = 0;
+					hideCount = 0;
+					leaveCount = 0;
+					sanity = 4;
+					timeLeft = 5;
+					correctDoor = rand() % 3 + 1;
+					puts("\nThe room resets around you...");
+					continue;
+				}
+				else
+				{
+					alive = 0;
+					done = 1;
+				}
+			}
+		}
+		else if(choice == 5)
+		{
+			leaveCount++;
+
+			if(leaveCount == 1)
+			{
+				puts("You pull on the locked door.");
+				puts("It does not open.");
+				puts("Behind you, one of the black doors knocks back.");
+				puts("The room whispers: \"Do not ask twice.\"");
+				sanity--;
+			}
+			else
+			{
+				puts("You try to leave again.");
+				puts("The locked door stays shut.");
+				puts("One of the black doors bursts open behind you.");
+				puts("A starving thing crawls out and devours you before you can scream.");
+				puts("You did not survive Room 36.");
+
+				if(retryRoom36() == 1)
+				{
+					done = 0;
+					alive = 1;
+					hidFirst = 0;
+					readNote = 0;
+					hideCount = 0;
+					leaveCount = 0;
+					sanity = 4;
+					timeLeft = 5;
+					correctDoor = rand() % 3 + 1;
+					puts("\nThe room resets around you...");
+					continue;
+				}
+				else
+				{
+					alive = 0;
+					done = 1;
+				}
+			}
+		}
+		else if(choice == 6)
+		{
+			puts("You collapse to the floor and begin to cry.");
+
+			if(sanity <= 1)
+			{
+				puts("You cannot stop.");
+				puts("Your crying echoes through the room.");
+				puts("Something answers.");
+				puts("It finds you by your voice.");
+				puts("You did not survive Room 36.");
+
+				if(retryRoom36() == 1)
+				{
+					done = 0;
+					alive = 1;
+					hidFirst = 0;
+					readNote = 0;
+					hideCount = 0;
+					leaveCount = 0;
+					sanity = 4;
+					timeLeft = 5;
+					correctDoor = rand() % 3 + 1;
+					puts("\nThe room resets around you...");
+					continue;
+				}
+				else
+				{
+					alive = 0;
+					done = 1;
+				}
+			}
+			else
+			{
+				puts("Your breathing becomes louder.");
+				puts("The room listens.");
+				puts("The walls whisper:");
+				puts("\"Time is not waiting for you.\"");
+				puts("\"Neither am I.\"");
+
+				sanity -= 2;
+				timeLeft -= 1;
+
+				if(sanity < 0)
+				{
+					sanity = 0;
+				}
+
+				if(timeLeft < 0)
+				{
+					timeLeft = 0;
+				}
+
+				puts("Your sanity drops. Your time slips away.");
+			}
+		}
+		else
+		{
+			puts("Invalid choice.");
+			puts("The walls move closer.");
+			sanity--;
+		}
+	}
+
+	puts("Room 36 is finished.");
 }
 
+int retryRoom36(void)
+{
+	int retry;
+
+	puts("\nYou have died in Room 36.");
+	puts("1. Try again");
+	puts("2. Return to hallway");
+
+	scanf("%d", &retry);
+
+	while(retry != 1 && retry != 2)
+	{
+		puts("Invalid choice. Enter 1 or 2:");
+		scanf("%d", &retry);
+	}
+
+	return retry;
+}
 
 void RT_room57(void)
 {
