@@ -4639,7 +4639,110 @@ void exitFunction(void)
 
 void cmeremikwu2(void)
 {
-    printf("CM\n");
+    int choice = 0;
+    int score = 0;
+    int decisions = 0;
+    int randomEvent = 0;
+    int inventory[5] = {0,0,0,0,0};
+
+    char *items[5] =
+    {
+        "phone charger",
+        "bottle of water",
+        "small flashlight",
+        "spare naira bills",
+        "pepper soup container"
+    };
+
+    printf("\nCM\n");
+    printf("You enter Room 70: The Midnight Lagos Bus.\n");
+    printf("A yellow danfo bus appears in front of you with the engine running.\n");
+    printf("The conductor says, \"Five smart choices and you make it home.\"\n");
+
+    while(decisions < 5)
+    {
+        printf("\nDecision %d of 5\n", decisions + 1);
+        printf("1. Check your bag\n");
+        printf("2. Talk to the conductor\n");
+        printf("3. Look out the window\n");
+        printf("Choose: ");
+        scanf("%d", &choice);
+
+        randomEvent = rand() % 3;
+
+        if(choice == 1)
+        {
+            inventory[decisions] = 1;
+            printf("You found your %s.\n", items[decisions]);
+            score++;
+
+            if(randomEvent == 0)
+            {
+                printf("Good timing. That item helps you stay calm.\n");
+                score++;
+            }
+        }
+        else if(choice == 2)
+        {
+            printf("You ask the conductor where the bus is going.\n");
+
+            if(randomEvent == 0)
+            {
+                printf("He laughs and says, \"No worry, you dey safe.\"\n");
+                score++;
+            }
+            else if(randomEvent == 1)
+            {
+                printf("He gives you a warning about the next stop.\n");
+                score += 2;
+            }
+            else
+            {
+                printf("He ignores you and keeps shouting for passengers.\n");
+                score--;
+            }
+        }
+        else if(choice == 3)
+        {
+            printf("You look out the window and see the city lights moving strangely.\n");
+
+            if(randomEvent == 0)
+            {
+                printf("You notice a shortcut sign before anyone else.\n");
+                score += 2;
+            }
+            else
+            {
+                printf("The road looks unfamiliar, but you stay focused.\n");
+                score++;
+            }
+        }
+        else
+        {
+            printf("Invalid choice. You hesitate and lose time.\n");
+            score--;
+        }
+
+        decisions++;
+    }
+
+    printf("\nFinal Score: %d\n", score);
+
+    if(score >= 6)
+    {
+        printf("You made all the right moves and escaped Room 70 safely.\n");
+        printf("The danfo drops you back at the main hallway.\n");
+    }
+    else if(score >= 3)
+    {
+        printf("You barely made it off the bus, but you survived Room 70.\n");
+    }
+    else
+    {
+        printf("You missed your stop and got lost in the midnight traffic.\n");
+    }
+
+    printf("Returning to the main room...\n\n");
 }
 
 void jbInit()
